@@ -7,7 +7,11 @@ pipeline {
     stages {
         stage ('build stage') {
             steps {
-                echo "this is from label and scm"
+                echo "this from script block"
+                script {
+                    def course = k8s
+                    println("thanks for enrolling")
+                }
             }
         }
     }
