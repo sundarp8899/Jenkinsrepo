@@ -7,8 +7,11 @@ pipeline {
     stages {
         stage ('build stage') {
             steps {
-                echo "i am checking error block and retry block"
-                error "this is small error"
+                retry(3) {
+                    echo "i am checking error block and retry block"
+                    error "this is small error"
+                }
+                echo "my retry is completed"
             }
         }
     }
