@@ -9,7 +9,7 @@ pipeline {
             steps {
                 echo "this from script block"
                 script {
-                    def course = k8s
+                    def course = "k8s"
                     println("thanks for enrolling")
                 }
             }
