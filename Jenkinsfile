@@ -1,5 +1,3 @@
-// this is main file
-
 pipeline {
     agent {
         label 'slave-java'
@@ -7,11 +5,10 @@ pipeline {
     stages {
         stage ('build stage') {
             steps {
-                retry(3) {
-                    echo "i am checking error block and retry block"
-                    error "this is small error"
+                timeout (time: 5, unit 'SECONDS') {
+                    echo "this is form time block"
+                    sleep 60
                 }
-                echo "my retry is completed"
             }
         }
     }
